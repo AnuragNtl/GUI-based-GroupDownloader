@@ -1,0 +1,30 @@
+#ifndef SERVERUI_H
+#define SERVERUI_H
+
+#include <QDialog>
+#include"distribution.h"
+#include"addclient.h"
+
+namespace Ui {
+class ServerUI;
+}
+
+class ServerUI : public QDialog
+{
+    Q_OBJECT
+
+private:
+    Ui::ServerUI *ui;
+    Distribution *dist;
+public:
+ ServerUI(QWidget *parent = 0,Distribution *d);
+    ~ServerUI();
+public slots:
+    void onStart();
+    void onAddClient();
+    void onDelClient();
+    void onAddClientStart();
+    friend class AddClient;
+};
+
+#endif // SERVERUI_H
